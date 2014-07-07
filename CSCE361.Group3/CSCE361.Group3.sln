@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CSCE361.Group3.BizLogic", "CSCE361.Group3.BizLogic\CSCE361.Group3.BizLogic.vbproj", "{B43AC5BE-747B-429E-96E9-5AFCAEB38098}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CSCE361.Group3.WebPages", "CSCE361.Group3.WebPages\CSCE361.Group3.WebPages.vbproj", "{824198CB-C4FE-4C11-9B83-B9467EA769F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B43AC5BE-747B-429E-96E9-5AFCAEB38098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43AC5BE-747B-429E-96E9-5AFCAEB38098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43AC5BE-747B-429E-96E9-5AFCAEB38098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43AC5BE-747B-429E-96E9-5AFCAEB38098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{824198CB-C4FE-4C11-9B83-B9467EA769F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{824198CB-C4FE-4C11-9B83-B9467EA769F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{824198CB-C4FE-4C11-9B83-B9467EA769F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{824198CB-C4FE-4C11-9B83-B9467EA769F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
