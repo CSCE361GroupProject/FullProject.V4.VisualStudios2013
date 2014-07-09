@@ -80,7 +80,7 @@
             'Updated to accomodate loading pictures in a new window
             sbMarker.Append("google.maps.event.addListener(marker")
             sbMarker.Append(i.ToString)
-            sbMarker.Append(",'click', function () { window.open('http://localhost:33627/PictureDetails.aspx?login=1' + marker")
+            sbMarker.Append(",'click', function () { window.open('http://54.88.28.177/PictureDetails.aspx?login=1' + marker")
             sbMarker.Append(i.ToString)
             sbMarker.Append(".url); });")
 
