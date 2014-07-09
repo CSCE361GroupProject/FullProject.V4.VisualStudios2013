@@ -70,11 +70,20 @@
         For i As Integer = 0 To oPictures.Rows.Count - 1 Step 1
             Dim sbMarker As New StringBuilder
 
+            'sbMarker.Append("google.maps.event.addListener(marker")
+            'sbMarker.Append(i.ToString)
+            'sbMarker.Append(",'click', function () { window.location.href = window.document.URL + marker")
+            'sbMarker.Append(i.ToString)
+            'sbMarker.Append(".url; });")
+
+
+            'Updated to accomodate loading pictures in a new window
             sbMarker.Append("google.maps.event.addListener(marker")
             sbMarker.Append(i.ToString)
-            sbMarker.Append(",'click', function () { window.location.href = window.document.URL + marker")
+            sbMarker.Append(",'click', function () { window.open('http://localhost:33627/PictureDetails.aspx?login=1' + marker")
             sbMarker.Append(i.ToString)
-            sbMarker.Append(".url; });")
+            sbMarker.Append(".url); });")
+
 
             sListeners.Append(sbMarker.ToString)
         Next

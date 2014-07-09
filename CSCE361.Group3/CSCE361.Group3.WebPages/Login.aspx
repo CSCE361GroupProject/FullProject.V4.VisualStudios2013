@@ -26,11 +26,11 @@
             <p>Once logged in, new users will encounter a brief registration and existing users will be taken directly to their profile. </p>
             <p>We look forward to seeing your photos!</p> <br />
             
-<%--            <label>Username:</label> <asp:TextBox ID="tbUserName" runat="server" /> <br />
+            <label>Username:</label> <asp:TextBox ID="tbUserName" runat="server" /> <br />
            
             <asp:Button ID="btnTwitter" runat="server" Text="Click here to login"/> <br />
 
-            <asp:Label ID="lblSuccess" runat="server" Visible="false" />   --%>     
+            <asp:Label ID="lblSuccess" runat="server" Visible="false" />        
             <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
         </center>
     </div>

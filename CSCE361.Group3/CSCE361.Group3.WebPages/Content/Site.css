@@ -107,7 +107,7 @@ h5, h6 {
         /*background: url("../Images/accent.png") no-repeat;*/
         padding-left: 10px;
         padding-top: 30px;
-        height:1000px;
+        height:725px;
     }
 
     .featured + .main-content {
@@ -791,7 +791,7 @@ tr.pager td {
 {
     float:left;
     width:740px;
-    height:400px;
+    height:700px;
 }
 
 /* Image scaling */
@@ -823,9 +823,9 @@ tr.pager td {
 
 .imagePhoto
 {
-    max-height:325px;
+    max-height:500px;
     height: 100%;
-    max-width:575px;
+    max-width:1200px;
     display:block;
     margin:auto;
 }
@@ -840,8 +840,11 @@ tr.pager td {
 .rptComments
 {
     height:325px;
+    max-height:500px;
+    width:1200px;
     float:left;
     overflow:scroll;
+    display:block;
 }
 
 
@@ -866,20 +869,20 @@ tr.pager td {
     float:left;
 }
 
-.divPicComment
+/*.divPicComment
 {
-    height:323px; 
+    height:700px; 
     width:573px; 
     float:left; 
     border:1px solid black
-}
+}*/
 
 .divCaptionSubmit
 {
     height:73px; 
-    width:573px; 
+    width:1200px; 
     float:left;
-    border:1px solid black
+    text-align:center;
 }
 
 .rptCommentID
@@ -903,4 +906,48 @@ tr.pager td {
 
 header{
     background-color:#D00000;
+}
+
+
+/*.divPicComment2
+{
+    height:500px; 
+    width:1200px; 
+    float:left; 
+    border:1px solid black;
+}*/
+
+
+
+.DisplayPhoto{
+    height:500px; 
+    width:1200px; 
+    float:left; 
+    display:block;
+}
+
+.DisplayInfo{
+    height:75px; 
+    width:1200px;
+    text-align:center;
+    border:1px solid black;
+    display:block;
+
+}
+
+.DisplayCaption{
+    height:73px; 
+    width:1200px; 
+    float:left;
+    border:1px solid black;
+    text-align:center;
+}
+
+.DisplayRepeater{
+    height:400px; 
+    width:1200px; 
+    float:left; 
+    overflow:scroll;
+    display:block;
+    text-align:center;
 }

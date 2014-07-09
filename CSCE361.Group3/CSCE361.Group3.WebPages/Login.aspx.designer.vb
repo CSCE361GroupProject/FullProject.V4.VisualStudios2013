@@ -23,6 +23,33 @@ Partial Public Class Login1
     Protected WithEvents Image2 As Global.System.Web.UI.WebControls.Image
 
     '''<summary>
+    '''tbUserName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbUserName As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''btnTwitter control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnTwitter As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''lblSuccess control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblSuccess As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''OpenAuthLogin control.
     '''</summary>
     '''<remarks>

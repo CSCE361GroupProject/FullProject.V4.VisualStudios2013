@@ -74,7 +74,7 @@
 <br /> <br />
 
 
-<div id="comments" runat="server" style="background-color:#FEFDFA; width:1150px">
+<%--<div id="comments" runat="server" style="background-color:#FEFDFA; width:1150px">
     <div id="image" class="divPicComment"><asp:Image ID="imagePhoto" runat="server" CssClass="imagePhoto"/></div>
     <div id="commentList" class="divPicComment" style="overflow:scroll">
         <center>
@@ -87,7 +87,7 @@
                     <tr style="height:25px">
                         <div id="test" class="rptCommentID"><asp:Label ID="lblcommentid" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "CommentID")%>' /></div>
                         <div class="rptCommentID"><asp:Label ID="lbluserid" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Profile")%>' /></div>
-                        <div class="rptName"> <%# DataBinder.Eval(Container.DataItem, "First")%></div>
+                        <div class="rptName"> <%# DataBinder.Eval(Container.DataItem, "Username")%></div>
                         <div class="rptComment"><%# DataBinder.Eval(Container.DataItem, "Content")%></div>
                         <div class="rptDelete"><asp:Button ID="rptbtnDelete" runat="server" CssClass="rptDelete" text="Delete" OnClientClick="return confirm('Are you sure you want to delete this comment?');"/></div>
                     </tr>
@@ -103,12 +103,12 @@
     <div id="commentSubmit" class="divCaptionSubmit">
         <div style="text-align:center; vertical-align:middle; height:100%">
         <br />
-            <asp:TextBox ID="tbAddComment" runat="server" Width="300px" Height="25px"/>
+            <asp:TextBox ID="tbAddComment" runat="server" Width="300px" Height="25px" MaxLength="40"/>
             <asp:Button ID="btnAddComment" runat="server" text="Submit Comment" /> <br />
             <asp:Label ID="lblAddSuccess" runat="server" />
         </div>
     </div>
-</div>
+</div>--%>
 
 
 

@@ -143,12 +143,20 @@
         Dim oResults As New Results
 
         If Trim(Latitude & "") = "" Then
-            Dim averyMid As Double = 40.819452
-            Dim boundiff As Double = 0.0003215
-            Dim random As New Random
-            Dim sign As Integer = random.Next(0, 1) * 2 - 1
+            Dim averyMid As Double = 40.81946
+            Dim boundiffLat As New Double
+            boundiffLat = 0.00032
 
-            Latitude = (averyMid + (random.NextDouble() * boundiff * sign)).ToString
+            Dim random1 As New Random
+            Dim sign As Integer
+
+            If TimeOfDay.Millisecond + random1.Next Mod 2 = 0 Then
+                sign = 1
+            Else
+                sign = -1
+            End If
+
+            Latitude = (averyMid + (random1.NextDouble() * boundiffLat * sign)).ToString
             oResults.sMessage = "Latitude set to middle area of Avery."
         End If
 
@@ -159,12 +167,18 @@
         Dim oResults As New Results
 
         If Trim(Longitude & "") = "" Then
-            Dim averyMid As Double = -96.704503
-            Dim boundiff As Double = 0.0003215
-            Dim random As New Random
-            Dim sign As Integer = random.Next(0, 1) * 2 - 1
+            Dim averyMid As Double = -96.70451
+            Dim boundiff As Double = 0.00032
+            Dim random2 As New Random
+            Dim sign As Integer
 
-            Longitude = (averyMid + (random.NextDouble() * boundiff * sign)).ToString
+            If TimeOfDay.Millisecond + random2.Next Mod 2 = 0 Then
+                sign = 1
+            Else
+                sign = -1
+            End If
+
+            Longitude = (averyMid + (Random2.NextDouble() * boundiff * sign)).ToString
             oResults.sMessage = "Longitude set to middle area of Avery."
         End If
     End Sub

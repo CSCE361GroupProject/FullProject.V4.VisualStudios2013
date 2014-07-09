@@ -158,6 +158,10 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="App_Data\Security.mdf" />
+    <Content Include="App_Data\Security_log.ldf">
+      <DependentUpon>Security.mdf</DependentUpon>
+    </Content>
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -233,6 +237,7 @@
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="PictureDetails.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -356,6 +361,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PictureDetails.aspx.designer.vb">
+      <DependentUpon>PictureDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PictureDetails.aspx.vb">
+      <DependentUpon>PictureDetails.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Registration.aspx.designer.vb">
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
@@ -408,9 +420,7 @@
     <Content Include="Site.Mobile.Master" />
     <Content Include="ViewSwitcher.ascx" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CSCE361.Group3.BizLogic\CSCE361.Group3.BizLogic.vbproj">
       <Project>{b43ac5be-747b-429e-96e9-5afcaeb38098}</Project>

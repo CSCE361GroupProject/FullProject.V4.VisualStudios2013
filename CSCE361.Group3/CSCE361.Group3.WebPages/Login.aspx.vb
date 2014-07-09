@@ -9,57 +9,57 @@ Public Class Login1
         Image2.ImageUrl = "http://i.imgur.com/83iHK.jpg"
 
         'check if user is logged in
-        Dim user As MembershipUser = Membership.GetUser(HttpContext.Current.User.Identity.Name)
+        'Dim user As MembershipUser = Membership.GetUser(HttpContext.Current.User.Identity.Name)
 
-        If Not user Is Nothing Then
-            Dim sUsername As String = user.ToString
+        'If Not user Is Nothing Then
+        '    Dim sUsername As String = user.ToString
 
-            If Not sUsername = "" Then
-                Dim oProfile As New BizLogic.Profile(sUsername)
-                Dim oIntResults As IntegerResults = oProfile.searchProfileByUsername
+        '    If Not sUsername = "" Then
+        '        Dim oProfile As New BizLogic.Profile(sUsername)
+        '        Dim oIntResults As IntegerResults = oProfile.searchProfileByUsername
 
-                'Set session variable to pass between pages
-                Session("username") = oProfile.Username
-                Session("userid") = oIntResults.lID
+        '        'Set session variable to pass between pages
+        '        Session("username") = oProfile.Username
+        '        Session("userid") = oIntResults.lID
 
-                'If user/profile does not exist - go to registration
-                If oIntResults.bSuccess Then
-                    Session("username") = oProfile.Username
-                    Response.Redirect("~/HomeProfile.aspx?login=1")
-                Else
-                    Response.Redirect("~/Registration.aspx")
-                End If
-            End If
-        End If
+        '        'If user/profile does not exist - go to registration
+        '        If oIntResults.bSuccess Then
+        '            Session("username") = oProfile.Username
+        '            Response.Redirect("~/HomeProfile.aspx?login=1")
+        '        Else
+        '            Response.Redirect("~/Registration.aspx")
+        '        End If
+        '    End If
+        'End If
 
-        'Dim sUsername As String = login
+        'Dim sUsername As String = Login
 
 
     End Sub
 
     'TODO: Add twitter authentication logic in Sprint 4
-    'Protected Sub btnTwitter_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnTwitter.Click
-    '    'Search if username exists in database
-    '    If Not tbUserName.Text = "" Then
-    '        Dim oProfile As New BizLogic.Profile(tbUserName.Text)
-    '        Dim oIntResults As IntegerResults = oProfile.searchProfileByUsername
+    Protected Sub btnTwitter_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnTwitter.Click
+        'Search if username exists in database
+        If Not tbUserName.Text = "" Then
+            Dim oProfile As New BizLogic.Profile(tbUserName.Text)
+            Dim oIntResults As IntegerResults = oProfile.searchProfileByUsername
 
-    '        'Set session variable to pass between pages
-    '        Session("username") = oProfile.Username
-    '        Session("userid") = oIntResults.lID
+            'Set session variable to pass between pages
+            Session("username") = oProfile.Username
+            Session("userid") = oIntResults.lID
 
-    '        'If user/profile does not exist - go to registration
-    '        If oIntResults.bSuccess Then
-    '            Session("username") = oProfile.Username
-    '            Response.Redirect("~/HomeProfile.aspx?login=1")
-    '        Else
-    '            Response.Redirect("~/Registration.aspx")
-    '        End If
-    '    Else
-    '        lblSuccess.Visible = True
-    '        lblSuccess.Text = "Please enter a username."
-    '        lblSuccess.ForeColor = Drawing.Color.Red
-    '    End If
-    'End Sub
+            'If user/profile does not exist - go to registration
+            If oIntResults.bSuccess Then
+                Session("username") = oProfile.Username
+                Response.Redirect("~/HomeProfile.aspx?login=1")
+            Else
+                Response.Redirect("~/Registration.aspx")
+            End If
+        Else
+            lblSuccess.Visible = True
+            lblSuccess.Text = "Please enter a username."
+            lblSuccess.ForeColor = Drawing.Color.Red
+        End If
+    End Sub
 
 End Class

@@ -108,7 +108,7 @@ Public Class PictureData
         Dim myConnectionStr As String = "server=cse-group3-mysql-instance1.c2qzromubl3x.us-east-1.rds.amazonaws.com; user=group3_master; password=group3_master; database=CSCE361"
         Dim myConnection As New MySqlConnection(myConnectionStr)
 
-        Dim query As String = "SELECT u.UserID 'Profile', u.FirstName 'First', u.LastName 'Last', c.content 'Content', c.CommentDate 'Time', c.CommentID FROM User u, Comment c WHERE(c.PhotoID = @PhotoID And c.UserID = u.UserID)"
+        Dim query As String = "SELECT u.UserID 'Profile', u.Username 'Username', u.LastName 'Last', c.content 'Content', c.CommentDate 'Time', c.CommentID FROM User u, Comment c WHERE(c.PhotoID = @PhotoID And c.UserID = u.UserID)"
 
         Dim mysqlCmd As New MySqlCommand(query, myConnection)
         mysqlCmd.Connection.Open()

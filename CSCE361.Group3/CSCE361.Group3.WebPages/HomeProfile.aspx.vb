@@ -23,11 +23,7 @@ Public Class HomeProfile
         _dtPictures = Session("dtPictures")
         _sSelectedUser = ddlUsers.SelectedValue
 
-
         If Not IsPostBack Then
-            'Parse querystring to get user data and save to private
-            parseQueryString()
-
             'Fill user-specific fields
             fillFields()
 
@@ -41,12 +37,6 @@ Public Class HomeProfile
 
             'Prepare user list
             bindUserList()
-        Else
-            'resets button handlers on postback (otherwise delete buttons dont work when page reloads)
-            For Each repItem As RepeaterItem In rptComments.Items
-                Dim rptDelete As Button = repItem.FindControl("rptbtnDelete")
-                AddHandler rptDelete.Click, AddressOf repeaterDelete
-            Next
         End If
         ddlUsers.SelectedValue = _sSelectedUser
     End Sub
@@ -61,77 +51,11 @@ Public Class HomeProfile
         If oDataTable.Rows.Count = 1 Then
             _sName = oDataTable.Rows(0).Item("FirstName") & " " & oDataTable.Rows(0).Item("LastName")
             _sUsername = oDataTable.Rows(0).Item("Username")
-
-            '    lblName.Text = _sName
-
-            '    If Not IsDBNull(oDataTable.Rows(0).Item("ProfilePictureFileLoc")) AndAlso Not oDataTable.Rows(0).Item("ProfilePictureFileLoc") = "" Then
-            '        imgProfilePic.ImageUrl = oDataTable.Rows(0).Item("ProfilePictureFileLoc")
-            '    Else
-            '        imgProfilePic.ImageUrl = "http://tinyurl.com/qxx8of9"
-            '    End If
         Else
             _sUserID = ""
         End If
     End Sub
 
-    'Logic to handle duplicate query string parameters - DO NOT EDIT
-    Private Sub parseQueryString()
-        Dim nCount = Request.QueryString.Count
-        If nCount = 2 Then
-            Dim sPhotoId1 As String = Request.QueryString("photoid")
-
-            If sPhotoId1.Contains(",") Then
-                Dim sArray() As String = sPhotoId1.Split(",")
-                Response.Redirect("/HomeProfile.aspx?login=1&photoid=" & sArray(1))
-            End If
-        End If
-
-        Dim sPhotoID As String = Request.QueryString("photoid")
-
-        If Not Trim(sPhotoID & "") = "" Then
-            _sPhotoID = sPhotoID
-            loadPicture(sPhotoID)
-        End If
-
-        'Hides div 
-        If sPhotoID Is Nothing Then
-            comments.Visible = False
-        End If
-
-    End Sub
-
-    'Loads picture, picture info, and comments - is launched when an id is found in the query string
-    Public Sub loadPicture(ByVal sPhotoID As String)
-        Dim oPicture As New Picture(sPhotoID)
-        oPicture.getPicture()
-        imagePhoto.ImageUrl = oPicture.ImagePath
-
-        'bind comment list to grid
-        rptComments.DataSource = oPicture.CommentList
-        rptComments.DataBind()
-
-        'disable delete button on comments when necessary
-        disableButtons(oPicture.UserID)
-
-        'set caption and uploader info
-        lblPicCaption.Text = oPicture.Caption
-        Dim oProfile As New Profile(oPicture.UserID, "")
-        oProfile.getUserByID()
-
-        lblPicUploader.Text = "Uploaded by: " & oProfile.FirstName & " " & oProfile.LastName
-
-        'enable/disable delete button for picture
-        Dim sUserID As String = _sUserID
-        If oPicture.UserID = sUserID Then
-            btnPicDelete.Enabled = True
-        Else
-            btnPicDelete.Enabled = False
-        End If
-
-        'TODO: make image clicable to view in full screen?
-    End Sub
-
-    'DONE: works
     Private Sub bindUserList()
         Dim oProfile As New Profile("")
         Dim oDataTable As DataTable = oProfile.getAllUsers
@@ -140,97 +64,6 @@ Public Class HomeProfile
         ddlUsers.DataTextField = "Username"
         ddlUsers.DataBind()
     End Sub
-#End Region
-
-
-#Region "Photo and Comments Section"
-    'DONE: works
-    Protected Sub btnAddComment_Click(sender As Object, e As EventArgs) Handles btnAddComment.Click
-        Dim sPhotoID As String = Request.QueryString("photoid")
-        Dim sUserID As String = Request.QueryString("userid")
-
-        If tbAddComment.Text = "" Then
-            lblAddSuccess.Text = "Please enter a comment."
-            lblAddSuccess.ForeColor = Drawing.Color.Red
-            lblAddSuccess.Visible = True
-        Else
-            Dim oComment As New Comment(tbAddComment.Text, sPhotoID, _sUserID)
-            oComment.addComment()
-
-            'reload repeater
-            Dim oPicture As New Picture(sPhotoID)
-            oPicture.getPicture()
-
-            'bind comment list to grid
-            rptComments.DataSource = oPicture.CommentList
-            rptComments.DataBind()
-
-            'Re-disables buttons to account for new comment
-            disableButtons(oPicture.UserID)
-
-            lblAddSuccess.Visible = False
-        End If
-
-        'clears text 
-        tbAddComment.Text = ""
-    End Sub
-
-    'Deletes selected picture and subsequent comments - if button is enabled
-    Protected Sub btnPicDelete_Click(sender As Object, e As EventArgs) Handles btnPicDelete.Click
-        Dim oPicture As New Picture(Request.QueryString("photoid"))
-        oPicture.deletePhoto()
-
-        'Rebind full list of pictures on google maps
-        Session("dtPictures") = getAllPictures()
-        literal1.Text = API_Google.populateGoogleMap(getAllPictures)
-
-        'Needed for clearing off selected photo
-        Response.Redirect("~\HomeProfile.aspx?login=1")
-    End Sub
-
-    'Handler for delete button in comment repeater view
-    'Deletes comment then reloads/rebinds data
-    'TODO: fix comment overflow section problem?
-    'TODO: show first/last name or username on comments?
-    Protected Sub repeaterDelete(sender As Object, e As EventArgs)
-        Dim button As Button = sender
-        Dim repeaterItem As RepeaterItem = button.NamingContainer
-        Dim index As Integer = repeaterItem.ItemIndex
-
-        Dim labelID As Label = repeaterItem.FindControl("lblcommentid")
-        Dim commentID As String = labelID.Text
-
-        Dim comment As New Comment(commentID)
-        comment.deleteComment()
-
-        Dim sPhotoID As String = Request.QueryString("photoid")
-        Dim oPicture As New Picture(sPhotoID)
-        oPicture.getPicture()
-        rptComments.DataSource = oPicture.CommentList
-        rptComments.DataBind()
-
-        loadPicture(Request.QueryString("photoid"))
-
-        Page_Load(sender, e)
-    End Sub
-
-    'Disables/enables buttons in comments repeater based on picture and comment ownership rights
-    Protected Sub disableButtons(ByVal sUserID As String)
-        For Each repItem As RepeaterItem In rptComments.Items
-            Dim rptDelete As Button = repItem.FindControl("rptbtnDelete")
-            Dim lbluserid As Label = repItem.FindControl("lbluserid")
-
-            If sUserID = Session("userid") Then
-                rptDelete.Enabled = True
-            ElseIf lbluserid.Text = Session("userid") Then
-                rptDelete.Enabled = True
-            Else
-                rptDelete.Enabled = False
-            End If
-        Next
-    End Sub
-
-    'TODO: convert repeater to grid view to fix formatting?
 #End Region
 
 
