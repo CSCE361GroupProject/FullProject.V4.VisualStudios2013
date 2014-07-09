@@ -124,3 +124,6 @@ D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.
 D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.WebPages\obj\Debug\CSCE361.Group3.WebPages.dll
 D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.WebPages\obj\Debug\CSCE361.Group3.WebPages.xml
 D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.WebPages\obj\Debug\CSCE361.Group3.WebPages.pdb
+D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.WebPages\bin\EntityFramework.SqlServer.dll
+D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.WebPages\bin\EntityFramework.SqlServer.xml
+D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.WebPages\bin\System.Web.Providers.xml

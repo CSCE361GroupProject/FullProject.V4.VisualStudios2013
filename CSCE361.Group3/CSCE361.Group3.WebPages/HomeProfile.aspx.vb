@@ -82,7 +82,7 @@ Public Class HomeProfile
             Dim sFilename As String = fuPhoto.FileName
             sFilename = sFilename.Substring(sFilename.IndexOf("."))
 
-            If sFilename = ".jpg" Or sFilename = ".png" Then
+            If sFilename.ToLower = ".jpg" Or sFilename.ToLower = ".png" Then
                 'Uploads the file to the web server for processing by exif
                 Dim folderpath As String = Server.MapPath("~/Uploads/")
                 filepath = folderpath & fuPhoto.FileName
