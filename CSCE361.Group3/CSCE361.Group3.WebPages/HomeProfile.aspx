@@ -27,7 +27,7 @@
        
     <div>
         <asp:Label ID="lblCaption" runat="server" Text="Caption:"></asp:Label>
-        <asp:TextBox ID="tbCaption" runat="server"></asp:TextBox> <br />
+        <asp:TextBox ID="tbCaption" runat="server" MaxLength="40"></asp:TextBox> <br />
         <asp:FileUpload ID="fuPhoto" runat="server" /> <br /> <br />
        
         <asp:Button ID="btnUpload" runat="server" Text="Upload photo"  OnClientClick="return confirm('Are you sure you want to upload this picture?');" />
@@ -39,7 +39,7 @@
         <br /> <br />
         <asp:Button ID="btnViewAllPhotos" runat="server" Text="View all photos" /> <br />
         <asp:Button ID="btnViewMyPhotos" runat="server" Text="View my photos" /> <br /> 
-        <asp:Button ID="btnViewCommentPhotos" runat="server" Text="View photo's I've commented on" /> <br />
+        <asp:Button ID="btnViewCommentPhotos" runat="server" Text="View photos I've commented on" /> <br />
     </div>
     </center>
 
@@ -48,8 +48,8 @@
         <center>Filter Photos: <br /> <br />
             <asp:Label ID="lblSelectUser" runat="server" Text="Select User:"></asp:Label> 
             <asp:DropDownList ID="ddlUsers" runat="server"> </asp:DropDownList> <br />
-            <asp:Button ID="btnByPhoto" runat="server" Text="View photo's uploaded by selected user" /> <br />
-            <asp:Button ID="btnByComment" runat="server" Text="View photo's commented on by selected user" /> <br /> <br />
+            <asp:Button ID="btnByPhoto" runat="server" Text="View photos uploaded by selected user" /> <br />
+            <asp:Button ID="btnByComment" runat="server" Text="View photos commented on by selected user" /> <br /> <br />
 
             <asp:Label ID="selectedPoint" runat="server" Text="Selected Point: "/> <asp:Textbox ID="tbSelectedPointLatLng" runat="server" onfocus="this.blur()" /> <br />
             <asp:Label ID="lblDistance" runat="server" Text="Distance in feet:"></asp:Label>

@@ -23,8 +23,7 @@ Public Class Registration
     Protected Sub btnRegister_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRegister.Click
         'Add user from fields
         Dim oProfile As New BizLogic.Profile(tbUsername.Text, tbFirstName.Text, tbLastName.Text)
-        oProfile.ProfilePicturePath = uploadPictureToImgur()
-        Dim oResults As Results = oProfile.addProfileWithPic()
+        Dim oResults As Results = oProfile.addProfile()
 
         'Validates user - checks for missing fields - displays error if fails
         If oResults.bSuccess Then
@@ -50,22 +49,4 @@ Public Class Registration
         Dim oIntResults As IntegerResults = oProfile.searchProfileByUsername()
         Return oIntResults.lID
     End Function
-
-    Private Function uploadPictureToImgur() As String
-        Dim oResults As New Results
-        oResults.bSuccess = False
-        oResults.sMessage = ""
-
-        If fuProfilePic.HasFile Then
-            'Get fileupload item and convert to 64string before passing into API_Imgur upload helper class
-            Dim imageLength As Integer = fuProfilePic.PostedFile.ContentLength
-            Dim imageBtye(imageLength) As Byte
-            fuProfilePic.PostedFile.InputStream.Read(imageBtye, 0, imageLength)
-
-            oResults = API_Imgur.uploadImage(Convert.ToBase64String(imageBtye))
-        End If
-
-        Return oResults.sMessage
-    End Function
-
 End Class

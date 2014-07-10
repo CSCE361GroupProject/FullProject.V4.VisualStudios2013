@@ -23,6 +23,24 @@ Partial Public Class SiteMaster
     Protected WithEvents HeadContent As Global.System.Web.UI.WebControls.ContentPlaceHolder
 
     '''<summary>
+    '''username control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents username As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''logoutLink control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents logoutLink As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''MainContent control.
     '''</summary>
     '''<remarks>

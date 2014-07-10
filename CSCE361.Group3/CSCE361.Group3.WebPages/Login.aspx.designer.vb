@@ -50,15 +50,6 @@ Partial Public Class Login1
     Protected WithEvents lblSuccess As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''OpenAuthLogin control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents OpenAuthLogin As Global.CSCE361.Group3.WebPages.OpenAuthProviders
-
-    '''<summary>
     '''Image1 control.
     '''</summary>
     '''<remarks>

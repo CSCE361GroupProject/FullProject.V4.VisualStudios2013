@@ -28,8 +28,7 @@
             <asp:Label ID="lblUserName" runat="server" Text="Twitter Username:" Width="110px" style="text-align:right" /> <asp:TextBox runat="server" ID="tbUsername"  Enabled="false"/> <br />
             <asp:Label ID="lblFirstName" runat="server" Text="First Name:"  Width="110px" style="text-align:right"/> <asp:TextBox runat="server" ID="tbFirstName" /> <br />
             <asp:Label ID="lblLastName" runat="server" Text="Last Name:" Width="110px" style="text-align:right" /> <asp:TextBox runat="server" ID="tbLastName" /> <br />
-            <asp:Label ID="lblProfilePic" runat="server" Text="Profile Picture:" Width="193px" style="text-align:right"/>
-            <asp:FileUpload ID="fuProfilePic" runat="server" /> <br /> <br />
+            <br /> <br />
             <asp:Button ID="btnRegister" runat="server" Text="Register"  /> <br />
             <asp:Label ID="lblSuccess" runat="server" Visible="false" />
 

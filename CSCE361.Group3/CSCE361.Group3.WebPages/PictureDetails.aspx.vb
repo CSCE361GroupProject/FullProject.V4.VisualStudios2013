@@ -51,6 +51,8 @@ Public Class PictureDetails
         If oDataTable.Rows.Count = 1 Then
             _sName = oDataTable.Rows(0).Item("FirstName") & " " & oDataTable.Rows(0).Item("LastName")
             _sUsername = oDataTable.Rows(0).Item("Username")
+            Dim lblusername As Label = Master.FindControl("username")
+            lblusername.Text = "Welcome, " & _sUsername & "!"
         Else
             _sUserID = ""
         End If

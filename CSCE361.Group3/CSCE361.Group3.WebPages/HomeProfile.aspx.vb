@@ -51,6 +51,8 @@ Public Class HomeProfile
         If oDataTable.Rows.Count = 1 Then
             _sName = oDataTable.Rows(0).Item("FirstName") & " " & oDataTable.Rows(0).Item("LastName")
             _sUsername = oDataTable.Rows(0).Item("Username")
+            Dim lblusername As Label = Master.FindControl("username")
+            lblusername.Text = "Welcome, " & _sUsername & "!"
         Else
             _sUserID = ""
         End If
@@ -137,6 +139,8 @@ Public Class HomeProfile
     Protected Sub btnViewAllPhotos_Click(sender As Object, e As EventArgs) Handles btnViewAllPhotos.Click
         Session("dtPictures") = getAllPictures()
         literal1.Text = API_Google.populateGoogleMap(getAllPictures)
+
+        lblSuccess.Visible = False
     End Sub
 
     'DONE: works
@@ -152,6 +156,8 @@ Public Class HomeProfile
 
         'Response.Redirect("~/HomeProfile.aspx?login=1")
         literal1.Text = API_Google.populateGoogleMap(oDataTable)
+
+        lblSuccess.Visible = False
     End Sub
 
     'DONE: works
@@ -165,6 +171,8 @@ Public Class HomeProfile
         End If
 
         literal1.Text = API_Google.populateGoogleMap(oDataTable)
+
+        lblSuccess.Visible = False
     End Sub
 #End Region
 
@@ -183,6 +191,7 @@ Public Class HomeProfile
         Session("selectedUser") = sUsername
 
         literal1.Text = API_Google.populateGoogleMap(oDataTable)
+        lblSuccess.Visible = False
     End Sub
 
     'DONE: works
@@ -200,6 +209,7 @@ Public Class HomeProfile
         Session("selectedUser") = sUsername
 
         literal1.Text = API_Google.populateGoogleMap(oDataTable)
+        lblSuccess.Visible = False
     End Sub
 #End Region
 
@@ -224,6 +234,7 @@ Public Class HomeProfile
             Session("dtPictures") = newPictures
 
             literal1.Text = API_Google.populateGoogleMap(newPictures)
+            lblDistanceSelect.Visible = False
         End If
     End Sub
 

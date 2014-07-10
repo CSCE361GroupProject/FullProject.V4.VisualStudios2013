@@ -39,7 +39,7 @@
         <div class="content-wrapper">
             <h3>CSCE361: Campus Map Project</h3>
                 <section id="login">
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                    <%--<asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul>
                                 <li><a id="loginLink" runat="server" href="~/Account/Login">Log in</a></li>
@@ -53,7 +53,10 @@
                                 <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/Login.aspx" />
                             </p>
                         </LoggedInTemplate>
-                    </asp:LoginView>
+                    </asp:LoginView>--%>
+                    <asp:Label runat="server" ID="username" Text="Welcome" />
+                    <asp:LinkButton runat="server" ID="logoutLink" Text="Logout" PostBackUrl="~/Login.aspx" OnClick="logoutLink_Click"/>
+                    <br />
                     <br />
                 </section>
             

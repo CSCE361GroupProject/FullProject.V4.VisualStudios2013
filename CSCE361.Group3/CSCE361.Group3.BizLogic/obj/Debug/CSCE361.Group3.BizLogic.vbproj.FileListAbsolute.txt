@@ -22,3 +22,9 @@ D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.
 D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.BizLogic\obj\Debug\CSCE361.Group3.BizLogic.dll
 D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.BizLogic\obj\Debug\CSCE361.Group3.BizLogic.xml
 D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.BizLogic\obj\Debug\CSCE361.Group3.BizLogic.pdb
+D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.BizLogic\bin\Debug\MySql.Data.dll
+D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.BizLogic\bin\Debug\System.Data.DataSetExtensions.dll
+D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.BizLogic\bin\Debug\System.Data.dll
+D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.BizLogic\bin\Debug\System.dll
+D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.BizLogic\bin\Debug\System.Xml.dll
+D:\VS 2013 - New\FullProject.V4.VisualStudios2013\CSCE361.Group3\CSCE361.Group3.BizLogic\bin\Debug\System.Xml.Linq.dll
